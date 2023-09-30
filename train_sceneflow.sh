@@ -1,0 +1,16 @@
+python train_stereo.py \
+--mixed_precision \
+--batch_size 16 \
+--train_datasets sceneflow \
+--lr 0.0002 \
+--num_steps 200000 \
+--train_iters 6 \
+--valid_iters 4 \
+--valid_freq 10000 \
+--device 0 1 \
+--saving_path ./pcv_ckpts \
+--max_disp 512 \
+--slow_fast_gru \
+--pct_start 0.004 \
+--do_flip h \
+--init_sigma 32

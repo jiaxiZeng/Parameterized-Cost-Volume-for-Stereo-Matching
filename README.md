@@ -67,7 +67,7 @@ bash ./train_sceneflow.sh
 ```
 
 ## Evaluate
-You need to create a directory called ```pcv_ckpts```  in the root directory of this project, then download [chechkpoint]((https://www.dropbox.com/scl/fi/za096sxpi7t6d5uk1f1da/pcvnet_sceneflow_sigma32.pth?rlkey=367wody43u6tj4uzx4lzf7lcz&dl=0)) to the directory, and run the following code:
+You need to create a directory called ```pcv_ckpts```  in the root directory of this project, then download [chechkpoint](https://www.dropbox.com/scl/fi/za096sxpi7t6d5uk1f1da/pcvnet_sceneflow_sigma32.pth?rlkey=367wody43u6tj4uzx4lzf7lcz&dl=0) to the directory, and run the following code:
 
 ```
 bash ./test_sceneflow.sh

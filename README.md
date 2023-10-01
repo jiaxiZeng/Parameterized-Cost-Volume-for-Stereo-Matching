@@ -1,6 +1,7 @@
 # Parameterized Cost Volume for Stereo Matching (ICCV2023)
 This repository is the implementation of [Parameterized Cost Volume for Stereo Matching](https://openaccess.thecvf.com/content/ICCV2023/papers/Zeng_Parameterized_Cost_Volume_for_Stereo_Matching_ICCV_2023_paper.pdf).
 
+We thank the authors of [RAFT-Stereo](https://github.com/princeton-vl/RAFT-Stereo), as our code is built on top of their project.
 ## Data
 To evaluate/train this model, you need to download the required datasets,
 - [sceneflow](https://lmb.informatik.uni-freiburg.de/resources/datasets/SceneFlowDatasets.en.html#:~:text=on%20Academic%20Torrents-,FlyingThings3D,-Driving)

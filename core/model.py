@@ -94,15 +94,15 @@ class PCVNet(nn.Module):
 
         # parameters initialization
         if init_param is not None:
-            coords0, _ = self.initialize_disp(fmap1)
+            coords0, _ = self.initialize_disp(fmap1)  # n,g(aussians),h,w
             factor = coords0.shape[3] / init_param['mu'].shape[3]
-            mu = factor * F.interpolate(init_param['mu'], size=(coords0.shape[2], coords0.shape[3]),
-                                        mode='bilinear', align_corners=True)
-            sigma = factor * F.interpolate(init_param['sigma'], size=(coords0.shape[2], coords0.shape[3]),
-                                           mode='bilinear', align_corners=True)
-            w = F.interpolate(init_param['w'], size=(coords0.shape[2], coords0.shape[3]),
-                              mode='nearest')
-            coords1 = coords0 - mu
+            coords1 = coords0 - factor * F.interpolate(init_param['mu'], size=(coords0.shape[2], coords0.shape[3]),
+                                                       mode='bilinear', align_corners=True)
+            N, C, H, W = net_list[0].shape
+            sigma = torch.ones(N, self.args.gauss_num, H, W).to(
+                coords0.device) * self.args.init_sigma / (
+                            2 ** self.args.n_downsample)
+            w = torch.ones(N, self.args.gauss_num, H, W).to(coords0.device) / self.args.gauss_num
         else:
             coords0, coords1 = self.initialize_disp(fmap1)
             N, C, H, W = net_list[0].shape
